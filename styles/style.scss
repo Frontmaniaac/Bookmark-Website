@@ -370,8 +370,8 @@ p {
 
         &__item {
             overflow: hidden;
-
-
+            user-select: none;
+            cursor: pointer;
 
             &__question {
                 display: flex;
@@ -396,7 +396,7 @@ p {
             }
 
             &__answer {
-                transition: max-height 0.7s ease-in-out;
+                transition: max-height 0.4s;
                 max-height: 0;
                 font-size: 1.2em;
                 text-align: left;

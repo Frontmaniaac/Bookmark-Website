@@ -303,6 +303,11 @@ p {
 }
 .FAQ__itemsWrap__item {
   overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
 }
 .FAQ__itemsWrap__item__question {
   display: flex;
@@ -323,7 +328,7 @@ p {
   max-height: 10px;
 }
 .FAQ__itemsWrap__item__answer {
-  transition: max-height 0.7s ease-in-out;
+  transition: max-height 0.4s;
   max-height: 0;
   font-size: 1.2em;
   text-align: left;
