@@ -181,7 +181,7 @@ p {
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin: 8rem 5rem 12rem 8rem;
+    margin: 8rem 2rem 12rem 4rem;
   }
 }
 @media (max-width: 1260px) {
@@ -195,11 +195,21 @@ p {
     margin: 0 0 3rem 0;
   }
 }
+@media (max-width: 590px) {
+  .main__image {
+    width: 100%;
+  }
+}
 .main__textWrap {
   display: flex;
   flex-direction: column;
   max-width: 900px;
   margin: auto 0;
+}
+@media (max-width: 990px) {
+  .main__textWrap {
+    align-items: center;
+  }
 }
 @media (max-width: 1700px) {
   .main__textWrap {
@@ -351,6 +361,11 @@ p {
     max-height: 300px;
   }
 }
+@media (max-width: 590px) {
+  .features__wrapSlider__slider__item__image {
+    max-height: 250px;
+  }
+}
 .features__wrapSlider__slider__item__textWrap {
   max-width: 600px;
   margin-left: 5rem;
@@ -492,11 +507,6 @@ p {
     margin: 0 2rem;
   }
 }
-@media (max-width: 700px) {
-  .extensions__browsers__item:nth-of-type(2) {
-    margin: 2rem;
-  }
-}
 .extensions__browsers__item:last-of-type {
   align-self: flex-end;
 }
@@ -504,11 +514,6 @@ p {
   .extensions__browsers__item:last-of-type {
     align-self: center;
     margin: 2rem 0 0 0;
-  }
-}
-@media (max-width: 700px) {
-  .extensions__browsers__item:last-of-type {
-    margin: 0;
   }
 }
 
@@ -603,11 +608,19 @@ p {
 .contact__title {
   max-width: 650px;
   color: #fff;
-  margin: 2rem 0;
+  margin: 2rem;
 }
 .contact__form {
   display: flex;
   justify-content: center;
+}
+@media (max-width: 990px) {
+  .contact__form {
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 0 2rem;
+  }
 }
 .contact__form__input {
   padding: 0.8rem;
@@ -617,6 +630,11 @@ p {
   border: none;
   font-size: 1em;
   transition: 0.2s ease;
+}
+@media (max-width: 990px) {
+  .contact__form__input {
+    margin: 0 0 1rem 0;
+  }
 }
 .contact__form__input::-moz-placeholder {
   opacity: 0.4;
@@ -639,9 +657,14 @@ p {
   color: #fff;
   text-transform: uppercase;
   background: #fa5757;
-  box-shadow: 1px 1px 5px #fa5757;
+  box-shadow: 1px 1px 2px #252b46;
   border-radius: 5px;
   letter-spacing: 0.1rem;
+}
+@media (max-width: 990px) {
+  .contact__form__button {
+    min-width: 325px;
+  }
 }
 .contact__form__button:hover {
   transform: translate(0);

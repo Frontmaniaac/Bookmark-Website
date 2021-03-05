@@ -193,7 +193,7 @@ p {
         text-align: center;
         align-items: center;
         justify-content: center;
-        margin: 8rem 5rem 12rem 8rem;
+        margin: 8rem 2rem 12rem 4rem;
     }
 
     &__image {
@@ -206,6 +206,10 @@ p {
             order: -1;
             margin: 0 0 3rem 0;
         }
+
+        @include breakpoint(bigmobile) {
+            width: 100%;
+        }
     }
 
     &__textWrap {
@@ -213,6 +217,10 @@ p {
         flex-direction: column;
         max-width: 900px;
         margin: auto 0;
+
+        @include breakpoint(tablet) {
+            align-items: center;
+        }
 
         @include breakpoint(bigpc) {
             max-width: 650px;
@@ -272,6 +280,7 @@ p {
             top: 10%;
             right: -20%;
         }
+
     }
 }
 
@@ -375,6 +384,9 @@ p {
                         max-height: 300px;
                     }
 
+                    @include breakpoint(bigmobile) {
+                        max-height: 250px;
+                    }
 
                 }
 
@@ -538,10 +550,6 @@ p {
                 @include breakpoint(tablet) {
                     margin: 0 2rem;
                 }
-
-                @media (max-width:700px) {
-                    margin: 2rem;
-                }
             }
 
             &:last-of-type {
@@ -552,9 +560,6 @@ p {
                     margin: 2rem 0 0 0;
                 }
 
-                @media (max-width:700px) {
-                    margin: 0;
-                }
             }
         }
     }
@@ -662,12 +667,19 @@ p {
     &__title {
         max-width: 650px;
         color: #fff;
-        margin: 2rem 0;
+        margin: 2rem;
     }
 
     &__form {
         display: flex;
         justify-content: center;
+
+        @include breakpoint(tablet) {
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            margin: 0 2rem;
+        }
 
         &__input {
             padding: 0.8rem;
@@ -677,6 +689,10 @@ p {
             border: none;
             font-size: 1em;
             transition: 0.2s ease;
+
+            @include breakpoint(tablet) {
+                margin: 0 0 1rem 0;
+            }
 
             &::placeholder {
                 opacity: 0.4;
@@ -698,10 +714,14 @@ p {
             color: #fff;
             text-transform: uppercase;
             background: $softRed;
-            box-shadow: 1px 1px 5px $softRed;
+            box-shadow: 1px 1px 2px $titleBlue;
             border-radius: 5px;
             letter-spacing: 0.1rem;
             @extend %button-hovered;
+
+            @include breakpoint(tablet) {
+                min-width: 325px;
+            }
 
             &:hover {
                 transform: translate(0);
@@ -728,6 +748,8 @@ p {
 
     &__navigation {
         margin: 0 4rem;
+
+
 
         @include breakpoint(tablet) {
             margin: 2rem 0;
