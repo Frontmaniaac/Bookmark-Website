@@ -7,16 +7,21 @@ sliderLinks.forEach((item, index) => {
         sliderLinks.forEach(i => {
             i.classList.remove("activeLink");
         })
-
-        console.log(-sliderItems[index].clientWidth * index);
-        slider.style.transform = 'translateX(' + -sliderItems[index].clientWidth * index + 'px)';
+        slider.style.transform = 'translateX(' + (-sliderItems[index].clientWidth * index) + 'px)';
         item.classList.add("activeLink");
     })
 })
 // FAQ
 const questions = document.querySelectorAll('.FAQ__itemsWrap__item')
 questions.forEach(item => {
+
     item.addEventListener("click", () => {
+        const arrow = item.childNodes[1].childNodes[1]
+        if (arrow.classList.contains("rotateArrow")) {
+            arrow.style.transitionDelay = "0.4s"
+        }
+        arrow.classList.toggle("rotateArrow")
+
         item.childNodes[3].classList.toggle('activeAnswer')
     })
 })

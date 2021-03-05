@@ -398,11 +398,12 @@ p {
 
                 &__img {
                     max-height: 10px;
+                    transition: 0.2s;
                 }
             }
 
             &__answer {
-                transition: max-height 0.4s;
+                transition: max-height 0.6s;
                 max-height: 0;
                 font-size: 1.2em;
                 text-align: left;
@@ -429,6 +430,10 @@ p {
             box-shadow: 2px 2px 5px $softBlue;
         }
     }
+}
+
+.rotateArrow {
+    transform: rotate(180deg);
 }
 
 .activeAnswer {
@@ -528,6 +533,7 @@ p {
     &__facebookLogo {
         margin: 0 2rem 0 auto;
         transition: 0.2s ease;
+        cursor: pointer;
 
         &:hover {
             opacity: 0.6;
@@ -536,6 +542,7 @@ p {
 
     &__twitterLogo {
         transition: 0.2s ease;
+        cursor: pointer;
 
         &:hover {
             opacity: 0.6;
