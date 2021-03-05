@@ -1,4 +1,5 @@
 @import "./mixins";
+@import "./animations";
 
 * {
     margin: 0;
@@ -189,14 +190,16 @@ p {
             width: 200px;
             padding-bottom: 1.5rem;
             text-align: center;
+            cursor: pointer;
 
-            &:hover:after {
+
+            &:hover span {
                 height: 3px;
                 background: $softRed;
                 box-shadow: 1px 1px 2px $softRed;
             }
 
-            &:after {
+            & span {
                 @extend %after_pseudo;
                 height: 1px;
                 background: $textGray;
@@ -205,24 +208,27 @@ p {
                 box-shadow: 1px 1px 2px $textGray;
                 transition: 0.2s ease;
             }
-
-            &:last-of-type::after {
-                width: 124%;
-            }
         }
 
     }
 
     &__wrapSlider {
-        position: relative;
         margin: 4rem 0;
+        min-height: 350px;
+        overflow: hidden;
+        max-width: 1200px;
 
         &__slider {
             display: flex;
-            flex-direction: column;
+            min-width: 1200px;
+            transition: 1s;
 
             &__item {
                 display: flex;
+                width: 100%;
+                min-width: 1200px;
+                max-height: 350px;
+                margin-right: 3rem;
 
                 &__textWrap {
                     max-width: 600px;
@@ -268,7 +274,7 @@ p {
 
 }
 
-.activeLink:after {
+.activeLink span {
     height: 3px;
     background: $softRed;
     box-shadow: 1px 1px 2px $softRed;

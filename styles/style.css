@@ -1,3 +1,5 @@
+@-webkit-keyframes spanSwitch {}
+@keyframes spanSwitch {}
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +12,7 @@
   cursor: pointer;
 }
 
-.FAQ__itemsWrap__item__question:after, .features__navigation__link:after, .header__navigation__link:after {
+.FAQ__itemsWrap__item__question:after, .features__navigation__link span, .header__navigation__link:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -160,13 +162,14 @@ p {
   width: 200px;
   padding-bottom: 1.5rem;
   text-align: center;
+  cursor: pointer;
 }
-.features__navigation__link:hover:after {
+.features__navigation__link:hover span {
   height: 3px;
   background: #fa5757;
   box-shadow: 1px 1px 2px #fa5757;
 }
-.features__navigation__link:after {
+.features__navigation__link span {
   height: 1px;
   background: #9194a1;
   width: 132%;
@@ -174,19 +177,23 @@ p {
   box-shadow: 1px 1px 2px #9194a1;
   transition: 0.2s ease;
 }
-.features__navigation__link:last-of-type::after {
-  width: 124%;
-}
 .features__wrapSlider {
-  position: relative;
   margin: 4rem 0;
+  min-height: 350px;
+  overflow: hidden;
+  max-width: 1200px;
 }
 .features__wrapSlider__slider {
   display: flex;
-  flex-direction: column;
+  min-width: 1200px;
+  transition: 1s;
 }
 .features__wrapSlider__slider__item {
   display: flex;
+  width: 100%;
+  min-width: 1200px;
+  max-height: 350px;
+  margin-right: 3rem;
 }
 .features__wrapSlider__slider__item__textWrap {
   max-width: 600px;
@@ -216,7 +223,7 @@ p {
   border-radius: 0 40% 40% 0;
 }
 
-.activeLink:after {
+.activeLink span {
   height: 3px;
   background: #fa5757;
   box-shadow: 1px 1px 2px #fa5757;
