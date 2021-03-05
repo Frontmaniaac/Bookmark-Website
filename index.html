@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
   <title>Bookmark landing page</title>
 </head>
@@ -20,6 +18,11 @@
       <a class="header__navigation__link" href="#">Contact</a>
       <button class="header__navigation__loginBtn">Login</button>
     </nav>
+    <div class="menuButton">
+      <div class="menuButton__bar"></div>
+      <div class="menuButton__bar"></div>
+      <div class="menuButton__bar"></div>
+    </div>
   </header>
   <main class="main">
     <div class="main__textWrap">
@@ -31,7 +34,7 @@
         <a class="main__textWrap__buttons__btn" href="#">Get it on Firefox</a>
       </div>
     </div>
-    <img class="main__img" src="images/illustration-hero.svg" alt="heroImg">
+    <img class="main__image" src="images/illustration-hero.svg" alt="heroImg">
     <div class="main__blob"></div>
   </main>
   <section class="features">
@@ -160,8 +163,10 @@
       <a class="footer__navigation__link" href="#">Pricing</a>
       <a class="footer__navigation__link" href="#">Contact</a>
     </nav>
-    <img src="images/icon-facebook.svg" alt="facebook" class="footer__facebookLogo">
-    <img src="images/icon-twitter.svg" alt="twitter" class="footer__twitterLogo">
+    <div class="footer__socials">
+      <img src="images/icon-facebook.svg" alt="facebook" class="footer__socials__facebookLogo">
+      <img src="images/icon-twitter.svg" alt="twitter" class="footer__socials__twitterLogo">
+    </div>
   </footer>
   <script src="code.js"></script>
   <!-- <footer>

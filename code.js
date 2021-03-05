@@ -1,3 +1,11 @@
+//MENU BUTTON
+const menuBtn = document.querySelector(".menuButton")
+const bars = document.querySelectorAll(".menuButton__bar")
+menuBtn.addEventListener('click', () => {
+    bars[0].classList.toggle("activeBar")
+    bars[1].classList.toggle("activeBar")
+    bars[2].classList.toggle("activeBar")
+})
 //FEATURES SLIDE
 const slider = document.querySelector(".features__wrapSlider__slider");
 const sliderLinks = document.querySelectorAll(".features__navigation__link");
@@ -19,6 +27,8 @@ questions.forEach(item => {
         const arrow = item.childNodes[1].childNodes[1]
         if (arrow.classList.contains("rotateArrow")) {
             arrow.style.transitionDelay = "0.4s"
+        } else {
+            arrow.style.transitionDelay = "0s"
         }
         arrow.classList.toggle("rotateArrow")
 

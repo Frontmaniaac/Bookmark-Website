@@ -1,5 +1,6 @@
 @import "./mixins";
 @import "./animations";
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
 
 * {
     margin: 0;
@@ -31,6 +32,11 @@ $titleBlue:hsl(229, 31%, 21%);
     position: absolute;
     bottom: -10%;
     background: $softBlue;
+
+    @include breakpoint(smallpc) {
+        width: 500px;
+        height: 300px;
+    }
 }
 
 
@@ -50,11 +56,32 @@ h1 {
 
 h3 {
     font-size: 3em;
+    margin: 0 2rem;
+
+    @include breakpoint(smallpc) {
+        font-size: 2.4em;
+    }
 }
 
 p {
     color: $textGray;
     font-size: 1.3em;
+}
+
+.activeBar {
+    &:first-of-type {
+        transform-origin: 0% 0%;
+        transform: translateY(-2px) rotate(45deg);
+    }
+
+    &:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    &:last-of-type {
+        transform: translateY(1px) rotate(-45deg);
+        transform-origin: 0% 100%;
+    }
 }
 
 .header {
@@ -64,9 +91,38 @@ p {
     margin: 2rem 8rem;
     font-size: 0.9em;
 
+    @include breakpoint(smallpc) {
+        margin: 2rem 2rem;
+    }
+
+    .menuButton {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 25px;
+        width: 35px;
+        display: none;
+
+        @include breakpoint(smalltablet) {
+            display: flex;
+        }
+
+        &__bar {
+            height: 5px;
+            width: 100%;
+            background: #000;
+            transition: 0.3s;
+
+        }
+    }
+
     &__navigation {
         display: flex;
         align-items: center;
+
+        @include breakpoint(smalltablet) {
+            display: none;
+        }
 
         &__link {
             margin: 0 1rem;
@@ -102,6 +158,10 @@ p {
             box-shadow: 3px 3px 5px $softRed;
             @extend %button-hovered;
 
+            @include breakpoint(smallpc) {
+                margin: 0 1rem;
+            }
+
             &:hover {
                 box-shadow: 2px 2px 5px $softRed;
                 transform: translate(0, 0);
@@ -116,14 +176,59 @@ p {
     margin: 12rem 5rem 18rem 8rem;
     justify-content: space-between;
 
+    @include breakpoint(bigpc) {
+        font-size: 16px;
+    }
+
+    @include breakpoint(mediumpc) {
+        font-size: 14px;
+    }
+
+    @include breakpoint(smallpc) {
+        margin: 12rem 2rem 14rem 4rem;
+    }
+
+    @include breakpoint(tablet) {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin: 8rem 5rem 12rem 8rem;
+    }
+
+    &__image {
+        @include breakpoint(smallpc) {
+            max-height: 350px;
+
+        }
+
+        @include breakpoint(tablet) {
+            order: -1;
+            margin: 0 0 3rem 0;
+        }
+    }
+
     &__textWrap {
         display: flex;
         flex-direction: column;
         max-width: 900px;
         margin: auto 0;
 
+        @include breakpoint(bigpc) {
+            max-width: 650px;
+            margin-right: 2rem;
+        }
+
+        @include breakpoint(tablet) {
+            align-items: center;
+        }
+
         &__title {
             font-size: 4em;
+
+            @include breakpoint(mediumpc) {
+                font-size: 3em;
+            }
         }
 
         &__text {
@@ -162,6 +267,11 @@ p {
         @extend %blue-blob;
         right: -10%;
         border-radius: 40% 0 0 40%;
+
+        @include breakpoint(tablet) {
+            top: 10%;
+            right: -20%;
+        }
     }
 }
 
@@ -174,7 +284,7 @@ p {
     position: relative;
 
     &__text {
-        margin: 1.2em 0;
+        margin: 1rem 2rem;
         max-width: 650px;
         text-align: center;
     }
@@ -182,6 +292,10 @@ p {
     &__navigation {
         display: flex;
         margin: 2rem 0;
+
+        @include breakpoint(smalltablet) {
+            flex-direction: column;
+        }
 
         &__link {
             position: relative;
@@ -192,6 +306,15 @@ p {
             text-align: center;
             cursor: pointer;
 
+            @include breakpoint(smalltablet) {
+                margin: 0;
+            }
+
+            &:nth-of-type(2) {
+                @include breakpoint(smalltablet) {
+                    margin: 2rem 0;
+                }
+            }
 
             &:hover span {
                 height: 3px;
@@ -207,6 +330,11 @@ p {
                 left: -16%;
                 box-shadow: 1px 1px 2px $textGray;
                 transition: 0.2s ease;
+
+                @include breakpoint(smalltablet) {
+                    width: 200%;
+                    left: -50%;
+                }
             }
         }
 
@@ -229,14 +357,41 @@ p {
                 min-width: 1200px;
                 max-height: 350px;
                 margin-right: 3rem;
+                align-items: center;
+                justify-content: center;
+
+                @include breakpoint(smallpc) {
+                    margin-right: 0;
+                }
+
+                @include breakpoint(tablet) {
+                    flex-direction: column;
+                    max-height: 700px;
+                    text-align: center;
+                }
+
+                &__image {
+                    @include breakpoint(smallpc) {
+                        max-height: 300px;
+                    }
+
+
+                }
+
 
                 &__textWrap {
                     max-width: 600px;
                     margin-left: 5rem;
 
-                    &__text {
-                        margin: 1.5rem 0 3rem 0;
+                    @include breakpoint(tablet) {
+                        margin: 3rem 2rem 0 2rem;
                     }
+
+                    &__text {
+                        margin: 1.5rem 2rem 3rem 2rem;
+                    }
+
+
 
                     &__button {
                         text-align: center;
@@ -249,7 +404,7 @@ p {
                         border-radius: 5px;
                         color: #fff;
                         @extend %button-hovered;
-
+                        margin: 0 auto;
 
                         &:hover {
                             box-shadow: 2px 2px 5px $softBlue;
@@ -270,6 +425,14 @@ p {
         left: -10%;
         width: 800px;
         border-radius: 0 40% 40% 0;
+
+        @include breakpoint(tablet) {
+            width: 450px;
+        }
+
+        @include breakpoint(tablet) {
+            top: 40%;
+        }
     }
 
 }
@@ -285,11 +448,16 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+
+    @include breakpoint(tablet) {
+        margin: 8rem 0;
+    }
 
     &__text {
         text-align: center;
-        max-width: 800px;
-        margin: 1.5rem 0;
+        max-width: 600px;
+        margin: 1.5rem 2rem;
     }
 
     &__browsers {
@@ -297,13 +465,23 @@ p {
         display: flex;
         min-height: 500px;
 
+        @include breakpoint(tablet) {
+            margin: 1rem 2rem;
+        }
+
+        @include breakpoint(tablet) {
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
         &__item {
             display: flex;
             align-items: center;
             flex-direction: column;
             box-shadow: 1px 5px 10px $textGray;
             border-radius: 20px;
-            padding: 2rem 2rem;
+            padding: 2rem;
             overflow-x: hidden;
 
             &__title {
@@ -347,15 +525,36 @@ p {
 
             &:first-of-type {
                 align-self: flex-start;
+
+                @include breakpoint(tablet) {
+                    align-self: center;
+                }
             }
 
             &:nth-of-type(2) {
                 align-self: center;
                 margin: 0 4rem;
+
+                @include breakpoint(tablet) {
+                    margin: 0 2rem;
+                }
+
+                @media (max-width:700px) {
+                    margin: 2rem;
+                }
             }
 
             &:last-of-type {
                 align-self: flex-end;
+
+                @include breakpoint(tablet) {
+                    align-self: center;
+                    margin: 2rem 0 0 0;
+                }
+
+                @media (max-width:700px) {
+                    margin: 0;
+                }
             }
         }
     }
@@ -367,12 +566,17 @@ p {
 
     &__text {
         max-width: 600px;
-        margin: 2rem auto;
+        margin: 2rem;
     }
 
     &__itemsWrap {
         max-width: 800px;
         margin: 0 auto;
+
+        @include breakpoint(tablet) {
+            margin: 0 2rem;
+        }
+
 
         &__item {
             overflow: hidden;
@@ -511,8 +715,23 @@ p {
     background: $titleBlue;
     padding: 2rem 8rem;
 
+    @include breakpoint(tablet) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__logo {
+        max-height: 40px;
+        max-width: 200px;
+    }
+
     &__navigation {
         margin: 0 4rem;
+
+        @include breakpoint(tablet) {
+            margin: 2rem 0;
+        }
 
         &__link {
             text-transform: uppercase;
@@ -530,22 +749,33 @@ p {
         }
     }
 
-    &__facebookLogo {
-        margin: 0 2rem 0 auto;
-        transition: 0.2s ease;
-        cursor: pointer;
+    &__socials {
+        &__facebookLogo {
+            margin: 0 2rem 0 auto;
+            transition: 0.2s ease;
+            cursor: pointer;
+            max-height: 20px;
+            max-width: 20px;
 
-        &:hover {
-            opacity: 0.6;
+            @include breakpoint(tablet) {
+                margin: 0 2rem 0 2rem;
+            }
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        &__twitterLogo {
+            transition: 0.2s ease;
+            cursor: pointer;
+            max-height: 20px;
+            max-width: 20px;
+
+            &:hover {
+                opacity: 0.6;
+            }
         }
     }
 
-    &__twitterLogo {
-        transition: 0.2s ease;
-        cursor: pointer;
-
-        &:hover {
-            opacity: 0.6;
-        }
-    }
 }

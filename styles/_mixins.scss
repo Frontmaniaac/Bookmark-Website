@@ -1,1 +1,33 @@
-@mixin buttonHover {}
+@mixin breakpoint ($dev) {
+    @if $dev==bigpc {
+        @media (max-width:1700px) {
+            @content;
+        }
+    }
+
+    @else if $dev==mediumpc {
+        @media (max-width:1540px) {
+            @content;
+        }
+    }
+
+    @else if $dev==smallpc {
+        @media (max-width:1260px) {
+            @content;
+        }
+    }
+
+    @else if $dev==tablet {
+        @media (max-width:990px) {
+            @content;
+        }
+    }
+
+    @else if $dev==smalltablet {
+        @media (max-width:840px) {
+            @content;
+        }
+    }
+
+
+}
