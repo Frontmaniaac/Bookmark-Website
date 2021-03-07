@@ -35,5 +35,11 @@
         }
     }
 
+    @else if $dev==midmobile {
+        @media (max-width:450px) {
+            @content;
+        }
+    }
+
 
 }

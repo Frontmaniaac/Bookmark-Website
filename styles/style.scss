@@ -37,6 +37,15 @@ $titleBlue:hsl(229, 31%, 21%);
         width: 500px;
         height: 300px;
     }
+
+    @include breakpoint(bigmobile) {
+        height: 250px;
+        width: 300px;
+    }
+
+    @include breakpoint(midmobile) {
+        height: 200px;
+    }
 }
 
 
@@ -61,11 +70,20 @@ h3 {
     @include breakpoint(smallpc) {
         font-size: 2.4em;
     }
+
+    @include breakpoint(midmobile) {
+        font-size: 2em;
+    }
+
 }
 
 p {
     color: $textGray;
     font-size: 1.3em;
+
+    @include breakpoint(midmobile) {
+        font-size: 1.1em;
+    }
 }
 
 .activeBar {
@@ -102,6 +120,7 @@ p {
         height: 25px;
         width: 35px;
         display: none;
+        cursor: pointer;
 
         @include breakpoint(smalltablet) {
             display: flex;
@@ -170,6 +189,58 @@ p {
     }
 }
 
+.activeMenuButton {
+    z-index: 20;
+
+    & .menuButton__bar {
+        background: #fff;
+    }
+}
+
+.activeNavigation {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 70%;
+    left: 0;
+    right: 0;
+    background: hsl(233, 41%, 24%);
+    color: #fff;
+    opacity: 0.95;
+    padding-top: 3.5rem;
+    min-height: 250px;
+
+    & a {
+        color: #fff;
+
+        &:after {
+            background: #fff;
+        }
+    }
+
+    & a:nth-of-type(1) {
+        margin: 1rem 0 0 0;
+    }
+
+    & a:nth-of-type(2) {
+        margin: 1rem 0;
+    }
+
+    & button {
+        margin: 1rem 0;
+        border: 2px solid #fff;
+        background: transparent;
+        box-shadow: none;
+        transform: translate(0);
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+}
+
 .main {
     position: relative;
     display: flex;
@@ -196,6 +267,7 @@ p {
         margin: 8rem 2rem 12rem 4rem;
     }
 
+
     &__image {
         @include breakpoint(smallpc) {
             max-height: 350px;
@@ -208,7 +280,7 @@ p {
         }
 
         @include breakpoint(bigmobile) {
-            width: 100%;
+            width: 120%;
         }
     }
 
@@ -237,12 +309,21 @@ p {
             @include breakpoint(mediumpc) {
                 font-size: 3em;
             }
+
+            @include breakpoint(midmobile) {
+                font-size: 2em;
+            }
+
         }
 
         &__text {
             margin: 1.5rem 0;
             font-size: 1.5em;
             line-height: 1.5;
+
+            @include breakpoint(midmobile) {
+                font-size: 1.3em;
+            }
         }
 
         &__buttons {
@@ -256,6 +337,11 @@ p {
                 background: $softBlue;
                 color: #fff;
                 @extend %button-hovered;
+                min-width: 120px;
+
+                @include breakpoint(midmobile) {
+                    padding: 0.8rem;
+                }
 
                 &:hover {
                     box-shadow: 2px 2px 5px $textGray;
@@ -344,6 +430,11 @@ p {
                     width: 200%;
                     left: -50%;
                 }
+
+                @include breakpoint(midmobile) {
+                    width: 125%;
+                    left: -12.5%;
+                }
             }
         }
 
@@ -359,6 +450,8 @@ p {
             display: flex;
             min-width: 1200px;
             transition: 1s;
+
+
 
             &__item {
                 display: flex;
@@ -379,6 +472,7 @@ p {
                     text-align: center;
                 }
 
+
                 &__image {
                     @include breakpoint(smallpc) {
                         max-height: 300px;
@@ -388,6 +482,9 @@ p {
                         max-height: 250px;
                     }
 
+                    @include breakpoint(midmobile) {
+                        max-height: 200px;
+                    }
                 }
 
 
@@ -397,6 +494,14 @@ p {
 
                     @include breakpoint(tablet) {
                         margin: 3rem 2rem 0 2rem;
+                    }
+
+                    @include breakpoint(bigmobile) {
+                        max-width: 450px;
+                    }
+
+                    @include breakpoint(midmobile) {
+                        max-width: 350px;
                     }
 
                     &__text {
@@ -444,6 +549,11 @@ p {
 
         @include breakpoint(tablet) {
             top: 40%;
+        }
+
+        @include breakpoint(midmobile) {
+            top: 47%;
+            width: 300px;
         }
     }
 
@@ -550,6 +660,11 @@ p {
                 @include breakpoint(tablet) {
                     margin: 0 2rem;
                 }
+
+                @include breakpoint(bigmobile) {
+                    margin: 2rem 0 0 0;
+                }
+
             }
 
             &:last-of-type {
@@ -571,7 +686,11 @@ p {
 
     &__text {
         max-width: 600px;
-        margin: 2rem;
+        margin: 2rem auto;
+
+        @include breakpoint(smalltablet) {
+            margin: 2rem;
+        }
     }
 
     &__itemsWrap {
@@ -596,6 +715,10 @@ p {
                 position: relative;
                 padding-bottom: 1rem;
 
+                @include breakpoint(midmobile) {
+                    font-size: 0.9em;
+                }
+
                 &:after {
                     @extend %after_pseudo;
                     left: 0;
@@ -612,9 +735,9 @@ p {
             }
 
             &__answer {
-                transition: max-height 0.6s;
+                transition: max-height 0.4s;
                 max-height: 0;
-                font-size: 1.2em;
+                font-size: 1em;
                 text-align: left;
             }
 
@@ -749,10 +872,12 @@ p {
     &__navigation {
         margin: 0 4rem;
 
-
-
         @include breakpoint(tablet) {
             margin: 2rem 0;
+        }
+
+        @include breakpoint(bigmobile) {
+            display: flex;
         }
 
         &__link {
@@ -772,8 +897,14 @@ p {
     }
 
     &__socials {
+        margin-left: auto;
+
+        @include breakpoint(tablet) {
+            margin-left: 0;
+        }
+
         &__facebookLogo {
-            margin: 0 2rem 0 auto;
+            margin: 0 2rem;
             transition: 0.2s ease;
             cursor: pointer;
             max-height: 20px;
