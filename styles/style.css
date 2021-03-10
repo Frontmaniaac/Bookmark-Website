@@ -7,6 +7,10 @@
   font-family: "Rubik", sans-serif;
 }
 
+button:active {
+  outline: none;
+}
+
 .contact__form__button, .FAQ__button, .features__wrapSlider__slider__item__textWrap__button, .main__textWrap__buttons__btn, .header__navigation__loginBtn {
   transition: 0.2s ease;
   transform: translate(1px, -1px);
@@ -480,7 +484,7 @@ p {
   }
 }
 .features__wrapSlider__slider__item__textWrap__text {
-  margin: 1.5rem 2rem 3rem 2rem;
+  margin: 1.5rem 2rem 2rem 2rem;
 }
 .features__wrapSlider__slider__item__textWrap__button {
   text-align: center;
@@ -492,11 +496,16 @@ p {
   box-shadow: 3px 3px 5px #5368df;
   border-radius: 5px;
   color: #fff;
-  margin: 0 auto;
+  margin: 0 2rem;
 }
 .features__wrapSlider__slider__item__textWrap__button:hover {
   box-shadow: 2px 2px 5px #5368df;
   transform: translate(0, 0);
+}
+@media (max-width: 990px) {
+  .features__wrapSlider__slider__item__textWrap__button {
+    margin: 0 auto;
+  }
 }
 .features__blob {
   left: -10%;

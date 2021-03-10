@@ -13,6 +13,12 @@ $softBlue:hsl(231, 69%, 60%);
 $textGray:hsl(229, 8%, 60%);
 $titleBlue:hsl(229, 31%, 21%);
 
+button {
+    &:active {
+        outline: none;
+    }
+}
+
 %button-hovered {
     transition: 0.2s ease;
     transform: translate(1px, -1px);
@@ -505,7 +511,7 @@ p {
                     }
 
                     &__text {
-                        margin: 1.5rem 2rem 3rem 2rem;
+                        margin: 1.5rem 2rem 2rem 2rem;
                     }
 
 
@@ -521,11 +527,15 @@ p {
                         border-radius: 5px;
                         color: #fff;
                         @extend %button-hovered;
-                        margin: 0 auto;
+                        margin: 0 2rem;
 
                         &:hover {
                             box-shadow: 2px 2px 5px $softBlue;
                             transform: translate(0, 0);
+                        }
+
+                        @include breakpoint(tablet) {
+                            margin: 0 auto;
                         }
                     }
 
